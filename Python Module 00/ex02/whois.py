@@ -10,7 +10,6 @@ def parity(nbr: int):
         print("I'm Even.")
 
 
-
 n = len(sys.argv)
 if n > 2:
     print("AssertionError: more than one argument are provided")

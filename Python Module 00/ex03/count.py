@@ -1,7 +1,9 @@
 import sys
 import string
 
-def text_analyzer(s = None):
+
+def text_analyzer(s=None):
+
     """
     This function counts the number of upper characters, lower characters,
     punctuation and spaces in a given text.
@@ -27,12 +29,12 @@ def text_analyzer(s = None):
     print("The text contains 8 character(s):")
     print("- " + str(upper) + "\tupper letter(s)")
     print("- " + str(lower) + "\tlower letter(s)")
-    print("- " + str(punc) +"\tpunctuation mark(s)")
+    print("- " + str(punc) + "\tpunctuation mark(s)")
     print("- " + str(spaces) + "\tspace(s)")
 
 
-
 if __name__ == "__main__":
+
     n = len(sys.argv)
     if n > 2:
         print("AssertionError: more than one argument are provided")

@@ -2,13 +2,20 @@ import sys
 
 
 def operations(a: int, b: int):
+
     print("Sum:\t\t" + str(a + b))
     print("Difference:\t" + str(a - b))
     print("Product:\t" + str(a * b))
-    print("Quotient:\t" + (str(a / b) if b != 0 else "ERROR (division by zero)"))
-    print("Remainder:\t" + (str(a % b) if b != 0 else "ERROR (modulo by zero)"))
+    if b is not 0:
+        print("Quotient:\t" + str(a / b))
+        print("Remainder:\t" + str(a % b))
+    else:
+        print("Quotient:\tERROR (division by zero)")
+        print("Remainder:\tERROR (modulo by zero)")
+
 
 if __name__ == "__main__":
+
     n = len(sys.argv)
     if n < 3:
         print("Usage: python operations.py <number1> <number2>")
