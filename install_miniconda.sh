@@ -29,7 +29,7 @@ function when_conda_exist {
     fi
 }
 function set_conda {
-    MINICONDA_PATH="/goinfre/$USER/miniconda3"
+    MINICONDA_PATH="/c/Users/taha/miniconda3"
     CONDA=$MINICONDA_PATH"/bin/conda"
     PYTHON_PATH=$(which python)
     REQUIREMENTS="jupyter numpy pandas pycodestyle"
