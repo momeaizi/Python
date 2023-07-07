@@ -41,10 +41,8 @@ def testGet_recipe_by_name(cookBook):
     dessert2 = cookBook.get_recipe_by_name("dessert2")
     print("\n\n")
 
-if __name__ == "__main__":
 
-    # invalidRecipeArgs()
-
+def testAddRecipe():
     pizza = Recipe("pizza", 3, 15, ["olive oil", "Flour", "tomatoes"]\
                     , "dish of Italian", "lunch")
     spaghetti = Recipe("spaghetti", 5, 10, ["olive oil", "pasta", "tomatoes"]\
@@ -74,6 +72,12 @@ if __name__ == "__main__":
     for recipe in recipes:
         cookBook.add_recipe(recipe)
 
-    # testGet_recipe_by_type(cookBook)
+    return cookBook
+
+if __name__ == "__main__":
+
+    # invalidRecipeArgs()
+    cookBook = testAddRecipe()
+    testGet_recipe_by_type(cookBook)
     testGet_recipe_by_name(cookBook)
     
