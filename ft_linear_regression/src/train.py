@@ -49,10 +49,10 @@ def zscore_normalize_features(X):
     return (X_norm, mu, sigma)
 
 
-def model_plot(ax, x_train, y_train, w, b):
-    f_wb = w * x_train + b
-    ax.scatter(x_train, y_train, marker='x', c='red', label='actual price')
-    ax.plot(x_train, f_wb, color='blue', label='predicted price')
+def model_plot(ax, X, x_norm, y_train, w, b):
+    f_wb = w * x_norm + b
+    ax.scatter(X, y_train, marker='x', c='red', label='actual price')
+    ax.plot(X, f_wb, color='blue', label='predicted price')
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
     ax.set_title('Training Data')
@@ -115,13 +115,13 @@ if __name__ == "__main__":
     try:
         df = pd.read_csv("./data/data.csv")
 
-        X_train = np.array(df['km'])
+        X = np.array(df['km'])
         y_train = np.array(df['price'])
 
-        X_train, mu, sigma = zscore_normalize_features(X_train)
+        X_norm, mu, sigma = zscore_normalize_features(X)
 
         model = LinearRegression()
-        w, b , J_history, p_history = model.fit(X_train, y_train)
+        w, b , J_history, p_history = model.fit(X_norm, y_train)
 
         save_model_params(w, b, mu, sigma)
 
@@ -131,9 +131,9 @@ if __name__ == "__main__":
         ax3 = fig.add_subplot(2, 2, 3, projection='3d')
 
 
-        model_plot(ax1, X_train, y_train, w, b)
+        model_plot(ax1, X, X_norm, y_train, w, b)
         plot_cost(ax2, J_history)
-        plot_3d_cost_surface(ax3, X_train, y_train)
+        plot_3d_cost_surface(ax3, X_norm, y_train)
 
         plt.tight_layout()
         plt.show()

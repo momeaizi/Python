@@ -23,7 +23,6 @@ car\_price\_prediction/
 │   ├── regression.py             # Custom linear regression implementation
 │   └── utils.py                  # Utility functions (e.g., read model, normalize)
 │
-├── plots/                        # (Optional) Visualizations like cost surface
 ├── README.md                     # You are here
 └── requirements.txt              # Dependencies
 
@@ -31,23 +30,40 @@ car\_price\_prediction/
 
 ---
 
-## 🚀 How to Use
+## 🔧 Environment Setup
 
-### 1. 📦 Install Dependencies
+It's recommended to use a virtual environment for clean dependency management.
+
+### 1. Create a virtual environment
+
+```bash
+python3 -m venv venv
+````
+
+### 2. Activate the environment
+
+* **Linux/macOS:**
+
+  ```bash
+  source venv/bin/activate
+  ```
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
-````
+```
 
-If `requirements.txt` is not created yet, install manually:
+### 4. Deactivate when done
 
 ```bash
-pip install numpy pandas matplotlib
+deactivate
 ```
 
 ---
 
-### 2. 🧠 Train the Model
+## 🚀 How to Use
+
+### 1. 🧠 Train the Model
 
 ```bash
 python src/train.py
@@ -61,7 +77,7 @@ This will:
 
 ---
 
-### 3. 📊 Evaluate the Model
+### 2. 📊 Evaluate the Model
 
 ```bash
 python src/evaluate.py
@@ -71,17 +87,26 @@ This prints:
 
 * **R² Score** (model precision)
 * **RMSE** (prediction error)
-* Optional: visualizations of cost function and data fit
 
 ---
 
-### 4. 🔮 Predict Car Price
+### 3. 🔮 Predict Car Price
 
 ```bash
 python src/predict.py
 ```
 
 This asks the user to input a mileage (in kilometers) and predicts the car price using the trained model.
+
+---
+
+## 📌 Example
+
+```bash
+$ python src/predict.py
+Enter car mileage (in km): 25000
+Predicted car price: 17500 $
+```
 
 ---
 
@@ -94,21 +119,11 @@ This asks the user to input a mileage (in kilometers) and predicts the car price
 
 ---
 
-## 📌 Example
-
-```bash
-$ python src/predict.py
-Enter car mileage (in km): 25000
-Estimated car price: 17500.34 $
-```
-
----
-
-## 📈 Sample Visualization
+## 📈 Visualizations
 
 * Data scatter + fitted regression line
 * Cost function surface (3D)
-* Cost over iterations (if using gradient descent)
+* Cost over iterations
 
 ---
 
