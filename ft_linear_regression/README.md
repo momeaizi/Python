@@ -1,32 +1,42 @@
 # 🚗 Car Price Prediction using Linear Regression
 
-This project predicts the **price of a car based on its mileage** using a custom implementation of **linear regression** trained on a real dataset.
+This project is a simple implementation of a **linear regression model** to estimate the **price of a used car based on its mileage (kilometers driven)**.
+
+It was developed as an educational project to demonstrate how machine learning models can be built from scratch — without relying on libraries like `scikit-learn`.
 
 ---
 
-## 📁 Project Structure
+## 📌 Project Description
 
-```
+The goal is to create two separate programs:
 
-car\_price\_prediction/
-│
-├── data/
-│   └── data.csv                  # Dataset: car mileage and price
-│
-├── models/
-│   └── model\_params.json         # Trained model parameters: w, b, mu, sigma
-│
-├── src/
-│   ├── train.py                  # Trains the linear regression model
-│   ├── evaluate.py               # Evaluates model precision (R², RMSE)
-│   ├── predict.py                # Takes user input and predicts car price
-│   ├── regression.py             # Custom linear regression implementation
-│   └── utils.py                  # Utility functions (e.g., read model, normalize)
-│
-├── README.md                     # You are here
-└── requirements.txt              # Dependencies
+1. **Training Program**:
+   - Reads a dataset of car mileages and prices.
+   - Normalizes the input data using **Z-score normalization**.
+   - Trains a **linear regression model** using **gradient descent**.
+   - Saves the learned parameters (`w`, `b`, `mu`, `sigma`) in a `.json` file.
+   - Generates graphs to visualize training results, including:
+     - Predicted vs. actual prices
+     - Cost per iteration
+     - 3D cost surface
 
-````
+2. **Prediction Program**:
+   - Loads the trained model parameters.
+   - Takes user input (mileage).
+   - Normalizes it using the same mean and std used during training.
+   - Outputs the **predicted price** of the car.
+
+---
+
+This project also includes:
+- Model evaluation using **R² Score (coefficient of determination)** and **RMSE (Root Mean Squared Error)**.
+- Edge case handling (e.g., negative predictions).
+- Modular code structure with separation of logic for training, prediction, evaluation, and utilities.
+
+---
+
+The goal is to help beginners understand the internal workings of linear regression and how real-world prediction models can be built and evaluated from the ground up.
+
 
 ---
 
@@ -42,7 +52,6 @@ python3 -m venv venv
 
 ### 2. Activate the environment
 
-* **Linux/macOS:**
 
   ```bash
   source venv/bin/activate
