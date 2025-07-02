@@ -1,7 +1,3 @@
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 import math
 
 
@@ -13,7 +9,7 @@ class LinearRegression():
         for i in range(m):
             f_wb = w * x[i] + b
             cost += (f_wb - y[i]) ** 2
-        return cost / m
+        return cost / (2 * m)
 
 
     def gradient_function(self, x, y, w, b):
@@ -92,5 +88,5 @@ class LinearRegression():
 
 
     def fit(self, X_train, y_train):
-        return self.gradient_descent(X_train, y_train, 0, 0, 0.0001, 120000, self.cost_function, self.gradient_function)
+        return self.gradient_descent(X_train, y_train, 0, 0, 0.001, 6100, self.cost_function, self.gradient_function)
         
